@@ -8278,15 +8278,15 @@ async def help_cmd(i: discord.Interaction):
     )
     e.set_thumbnail(url=bot.user.display_avatar.url)
 
-    e.add_field(
+       e.add_field(
         name="ℹ️  INFO & UTILITI",
         value=(
             f"🎯 `{px}ping` `{px}serverinfo` `{px}userinfo` `{px}avatar`\n"
-                       f"<:e_mail:1519362754732097546> `{px}invite` `{px}spotify` `{px}qr`\n"
-"
+            f"<:e_mail:1519362754732097546> `{px}invite` `{px}spotify` `{px}qr`\n"
             f"<:e_chart:1519362656568475880> `{px}topchatters` `{px}aktivnost`"
         ),
         inline=False,
+    )
     )
     e.add_field(
         name="<:e_sleep:1519362785291669644>  AFK & SOCIJALNO",
