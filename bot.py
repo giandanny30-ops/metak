@@ -8282,7 +8282,7 @@ async def help_cmd(i: discord.Interaction):
         name="ℹ️  INFO & UTILITI",
         value=(
             f"🎯 `{px}ping` `{px}serverinfo` `{px}userinfo` `{px}avatar`\n"
-            f"<:e_mail:1519362754732097546> `{px}invite` `{px}spotify` `{px}qr`
+                       f"<:e_mail:1519362754732097546> `{px}invite` `{px}spotify` `{px}qr`\n"
 "
             f"<:e_chart:1519362656568475880> `{px}topchatters` `{px}aktivnost`"
         ),
