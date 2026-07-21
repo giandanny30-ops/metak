@@ -3575,7 +3575,7 @@ async def rank(i: discord.Interaction, korisnik: discord.Member = None):
     await i.response.send_message(embed=rank_e)
 
 # ═══════════════════════════════════════════
-#    /aktivnost — prikaz LVL / XP / poruke
+# /aktivnost — prikaz LVL / XP / poruke
 # ═══════════════════════════════════════════
 @bot.tree.command(name="aktivnost", description="<:e_chart:1519362656568475880> Tvoja aktivnost: level, XP i broj poruka")
 @discord.app_commands.describe(korisnik="Čija statistika? (default: ti)")
@@ -3587,13 +3587,11 @@ async def aktivnost(i: discord.Interaction, korisnik: discord.Member = None):
     xp_d = get_xp(u.id)
     lvl  = int(xp_d.get("level", 1))
     xp   = int(xp_d.get("xp", 0))
-
     # Napredak do sljedećeg levela (svakih 100 poruka)
     do_sljedeceg = 100 - (msgs % 100) if msgs % 100 != 0 else 100
     proslo = msgs % 100
     filled = min(proslo // 10, 10)
     bar = "<:e_sun:1519362860218843399>" * filled + "<:e_stop:1519363022399995914>" * (10 - filled)
-
     sep = "━━━━━━━━━━━━━━━━━━━━"
     desc = (
         f"{sep}\n"
@@ -3609,12 +3607,10 @@ async def aktivnost(i: discord.Interaction, korisnik: discord.Member = None):
         timestamp=datetime.now(timezone.utc)
     )
     e.set_thumbnail(url=u.display_avatar.url)
-    e.add_field(name="<:e_trophy2:1519362624742232146> Level",    value=f"```fix\n<:e_star2:1519363084253266031> {lvl} <:e_star2:1519363084253266031>\n```", inline=True)
-    e.add_field(name="<:e_star2:1519363084253266031> XP",       value=f"```py\n{xp:,}\n```",      inline=True)
-    e.add_field(name="<:e_bubble:1519363307998417148> Poruke",   value=f"```css\n{msgs:,}\n```",   inline=True)
-    e.add_field(name="<:e_level2:1519362739749785610> Sistem", value="```ini
-[100 poruka = 1 LVL + 100 XP]
-```", inline=False)
+    e.add_field(name="<:e_trophy2:1519362624742232146> Level",  value=f"```fix\n<:e_star2:1519363084253266031> {lvl} <:e_star2:1519363084253266031>\n```", inline=True)
+    e.add_field(name="<:e_star2:1519363084253266031> XP",     value=f"```py\n{xp:,}\n```",      inline=True)
+    e.add_field(name="<:e_bubble:1519363307998417148> Poruke", value=f"```css\n{msgs:,}\n```",   inline=True)
+    e.add_field(name="<:e_level2:1519362739749785610> Sistem", value="```ini\n[100 poruka = 1 LVL + 100 XP]\n```", inline=True)
     e.set_footer(text=f"<:e_bolt:1519362674717102160> {BOT_NAME} • Aktivnost • Svakih 100 poruka novi level!")
     await i.response.send_message(embed=e)
 
